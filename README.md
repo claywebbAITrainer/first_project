@@ -1,1 +1,1 @@
-# first_project
+# This is the first project working with Data Annotations new AI-Assistant
