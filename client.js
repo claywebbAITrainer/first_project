@@ -1,24 +1,38 @@
-console.log('** 110 - Conditional **');
+let myScrabbleTiles = [];
 
+function addObjects(tile, score) {
+    // console.log('In addObjects function');
+    let tileObjects = {};
+    tileObjects.tile = tile;
+    tileObjects.score = score;
 
+    myScrabbleTiles.push(tileObjects);
+    return myScrabbleTiles;
+} // End addObjects function
 
-function conditionalCheck(numOne, numTwo){
-  if (numOne>numTwo) {
-    return "The first number was bigger!"
-  }
-  else if (numTwo>numOne) {
-    return "The second number was bigger!";
-  }
-  else {
-    return "The numbers are the same!";
-  }
+addObjects('N', 1); // This will add the values into the myScrabbleTiles array
+addObjects('K', 5);
+addObjects('Z', 10);
+addObjects('X', 8);
+addObjects('D', 2);
+addObjects('A', 1);
+
+// console.log(myScrabbleTiles);
+
+function testAnswers(array) {
+    let topScoreArray = [];
+    let lowScoreArray = [];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].score > 5) {
+            topScoreArray.push(array[i]);
+        } else {
+            lowScoreArray.push(array[i]);
+        }
+    }
+    console.log('Top Scores:', topScoreArray);
+    console.log('Low Scores:', lowScoreArray);
+    let highScore = 29;
+    // return highScore;
 }
-console.log('Example #1:');
-console.log('Is 3 bigger than 2? :', conditionalCheck(3,2));
 
-console.log('Example #2:');
-console.log('Is 7 bigger than 7? :', conditionalCheck(7,7));
-
-console.log('Example #3:');
-console.log('Is 2 bigger than 7? :', conditionalCheck(2,7));
-// Assistant was able to create and test a conditional checkpoint function correctly
+console.log(testAnswers(myScrabbleTiles));
