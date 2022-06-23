@@ -34,5 +34,3 @@ function testAnswers(array) {
     let highScore = 29;
     // return highScore;
 }
-
-console.log(testAnswers(myScrabbleTiles));
