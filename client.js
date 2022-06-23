@@ -1,55 +1,33 @@
-let garage = [];
+// Me
+    // "Create an array called Employee with properties for name, employeeNumber, annualSalary, and reviewRating"
 
+// Assistant
+var employee = [{name: "someone", employeeNumber: 1234, annualSalary: 1234, reviewRating: 5}]
+//--------------------------------------------------------------------------------------------------------------------
 
-function newCar(yearInput, makeInput, modelInput) {
-    console.log('in newCar:', yearInput, makeInput, modelInput);
-    const newCarObject = {
-        year: yearInput,
-        make: makeInput,
-        model: modelInput
-    };
-    garage.push(newCarObject);
-    return true;
-}
+// Me
+    // "Convert that array to ES6"
 
+// Assistant
+const employee = [
+    {name: "foo", employeeNumber: 1234, annualSalary: 1234, reviewRating: 5}
+];
+//--------------------------------------------------------------------------------------------------------------------
 
-$(document).ready(addCarButton);
-function addCarButton() {
-    $('#addCarButton').on('click', addToGarage);
-}
+// Me
+    // "Add two more employee objects to the employees array"
 
+// Assistant
+employee.push(
+    {name: "foo", employeeNumber: 1234, annualSalary: 1234, reviewRating: 5},
+    {name: "bar", employeeNumber: 1235, annualSalary: 1235, reviewRating: 3}
+);
+//--------------------------------------------------------------------------------------------------------------------
 
-function addToGarage() {
-    let year = $('#yearInput').val();
-    let make = $('#makeInput').val();
-    let model = $('#modelInput').val();
-    newCar(year, make, model);
-    console.log('Cars in garage:', garage.length);
-    console.log('The cars are:', garage);
-    $('#yearInput').val('');
-    $('#makeInput').val('');
-    $('#modelInput').val('');
-    $('#addCarButton').on('click', displayCars);
-    displayCars();
-    calculateTotalCars();
-}
+// Me
+    // "Explain why this is true, preferably with something I can test."
 
-
-function displayCars() {
-    let el = $('#carsOut');
-    el.empty();
-    for (let car of garage) {
-        el.append(`<li>` + car.year + `, ` + car.make + ` ` + car.model + `</li>`);
-    }
-}
-
-
-function calculateTotalCars() {
-    let totalCars = 0;
-    for (let i = 0; i < garage.length; i++) {
-        totalCars += garage.length;
-    }
-    let el = $('#carsInGarage');
-    el.empty();
-    el.append(garage.length);
-}
+// Assistant
+    // "employee.push() will add an item to the end of the array. So employee.push({...}); will append an item. 
+    // You can push multiple items at once: employee.push({...}, {...});"
+//-----------------------------------< END OF CONVO >---------------------------------------------------------------------------------
