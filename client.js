@@ -16,6 +16,8 @@ addObjects('Z', 10);
 addObjects('X', 8);
 addObjects('D', 2);
 addObjects('A', 1);
+addObjects('A', 1);
+
 
 // console.log(myScrabbleTiles);
 
@@ -34,3 +36,4 @@ function testAnswers(array) {
     let highScore = 29;
     // return highScore;
 }
+~/.ssh/github-prime
