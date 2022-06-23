@@ -1,68 +1,55 @@
-let bookList = [
-    {
-        title: 'The Race',
-        genre: 'Action'
-    },
-    {
-        title: 'The Journey',
-        genre: 'Adventure'
-    },
-    {
-        title: 'The Elf',
-        genre: 'Fantasy'
-    },
-    {
-        title: 'The Rocket',
-        genre: 'Sci Fi'
-    },
-    {
-        title: 'The Computer',
-        genre: 'Sci Fi'
-    },
-    {
-        title: 'The Unicorn',
-        genre: 'Fantasy'
-    },
-    {
-        title: 'The Person',
-        genre: 'Biography'
-    },
-    {
-        title: 'The Book About Plants',
-        genre: 'Action'
-    },
-    {
-        title: 'The Space Ship',
-        genre: 'SciFi'
-    },
-    {
-        title: 'The Book About Animals',
-        genre: 'Non-Fiction'
-    },
-    {
-        title: 'The Public Speaker',
-        genre: 'Biography'
-    },
-    {
-        title: 'The Burrito',
-        genre: 'Non-Fiction'
-    },
-    {
-        title: 'The Climb',
-        genre: 'Adventure'
-    }
-];
+let garage = [];
 
-var getArrByGenre = function (list, genre) {
-    return list
-        .filter(function (book) {
-            return book.genre === genre
-        })
-        .map(function (book) {
-            return book.title
-        })
+
+function newCar(yearInput, makeInput, modelInput) {
+    console.log('in newCar:', yearInput, makeInput, modelInput);
+    const newCarObject = {
+        year: yearInput,
+        make: makeInput,
+        model: modelInput
+    };
+    garage.push(newCarObject);
+    return true;
 }
 
 
+$(document).ready(addCarButton);
+function addCarButton() {
+    $('#addCarButton').on('click', addToGarage);
+}
 
-console.log(getArrByGenre(bookList, 'Fantasy'))
+
+function addToGarage() {
+    let year = $('#yearInput').val();
+    let make = $('#makeInput').val();
+    let model = $('#modelInput').val();
+    newCar(year, make, model);
+    console.log('Cars in garage:', garage.length);
+    console.log('The cars are:', garage);
+    $('#yearInput').val('');
+    $('#makeInput').val('');
+    $('#modelInput').val('');
+    $('#addCarButton').on('click', displayCars);
+    displayCars();
+    calculateTotalCars();
+}
+
+
+function displayCars() {
+    let el = $('#carsOut');
+    el.empty();
+    for (let car of garage) {
+        el.append(`<li>` + car.year + `, ` + car.make + ` ` + car.model + `</li>`);
+    }
+}
+
+
+function calculateTotalCars() {
+    let totalCars = 0;
+    for (let i = 0; i < garage.length; i++) {
+        totalCars += garage.length;
+    }
+    let el = $('#carsInGarage');
+    el.empty();
+    el.append(garage.length);
+}
